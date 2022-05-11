@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         bttoast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toaster.showMyToast(context,"newtoast");
              }
         });
     }

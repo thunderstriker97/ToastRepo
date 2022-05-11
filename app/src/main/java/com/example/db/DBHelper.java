@@ -15,11 +15,10 @@ import androidx.annotation.RequiresApi;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static DBHelper mInstance;
-    private  Context context;
+    private Context context;
 
-    public static  DBHelper getInstance(Context context)
-    {
-        if (mInstance==null){
+    public static DBHelper getInstance(Context context) {
+        if (mInstance == null) {
             mInstance = new DBHelper(context.getApplicationContext());
         }
         return mInstance;
@@ -30,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(@Nullable Context context) {
         super(context, DBManagers.DB_NAME, null, DBManagers.DB_VERSION);
 
-        this.context= context;
+        this.context = context;
     }
 
     @Override
@@ -46,36 +45,31 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void saveInDB(String data){
-        SQLiteDatabase db= this.getWritableDatabase();
-
-
-            ContentValues values = new ContentValues();
-            values.put(DBManagers.USER_NAME, data);
-            db.insert(DBManagers.TABLE_NAME, DBManagers.USER_NAME, values);
+    public void saveInDB(String data) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBManagers.USER_NAME, data);
+        db.insert(DBManagers.TABLE_NAME, DBManagers.USER_NAME, values);
     }
 
-     @SuppressLint("Range")
-     public String[] getFromDB(){
-        Cursor cursor= null;
-        String[] string= new String[3];
+    @SuppressLint("Range")
+    public String[] getFromDB() {
+        Cursor cursor = null;
+        String[] string = new String[3];
 
-        SQLiteDatabase db= this.getReadableDatabase();
-        String query= "Select * from " +DBManagers.TABLE_NAME;
-       cursor= db.rawQuery(query,null);
-         System.out.println(""+cursor.getCount());
-         if (cursor.moveToFirst()){
-             do {
-                 string[0]= cursor.getString(cursor.getColumnIndex(DBManagers.USER_NAME));
-             }
-             while (cursor.moveToNext());
-
-
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select * from " + DBManagers.TABLE_NAME;
+        cursor = db.rawQuery(query, null);
+        System.out.println("" + cursor.getCount());
+        if (cursor.moveToFirst()) {
+            do {
+                string[0] = cursor.getString(cursor.getColumnIndex(DBManagers.USER_NAME));
+            }
+            while (cursor.moveToNext());
 
 
-
-       }
-       return string;
+        }
+        return string;
 
     }
 
