@@ -10,3 +10,4 @@ dependencyResolutionManagement {
 rootProject.name = "Db"
 include ':app'
 include ':ToastLibrary'
+include ':CustomView'

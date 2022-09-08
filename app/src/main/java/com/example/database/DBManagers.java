@@ -1,4 +1,4 @@
-package com.example.db;
+package com.example.database;
 
 public class DBManagers {
     //database schema

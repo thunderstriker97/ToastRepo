@@ -1,4 +1,4 @@
-package com.example.db;
+package com.application.dpdtech.customviews;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.db", appContext.getPackageName());
+        assertEquals("com.application.dpdtech.customviews.test", appContext.getPackageName());
     }
 }

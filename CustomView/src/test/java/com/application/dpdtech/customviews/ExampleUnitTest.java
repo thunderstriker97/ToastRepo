@@ -1,4 +1,4 @@
-package com.example.db;
+package com.application.dpdtech.customviews;
 
 import org.junit.Test;
 
